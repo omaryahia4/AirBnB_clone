@@ -30,7 +30,6 @@ While running in interactive mode, the console displays a prompt for input:
 $ ./console.py
 (hbnb) 
 ```
-
 To quit the console, enter the command `quit`, or input an EOF signal (`ctrl-D`).
 ```
 $ ./console.py
