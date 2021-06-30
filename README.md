@@ -25,7 +25,6 @@ Alternatively, to use the HolbertonBnB console in interactive mode, run the file
 $ ./console.py
 ```
 While running in interactive mode, the console displays a prompt for input:
-
   ```
 $ ./console.py
 (hbnb) 
