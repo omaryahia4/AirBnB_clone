@@ -21,7 +21,6 @@ EOF  all  count  create  destroy  help  quit  show  update
 $
 ```
 Alternatively, to use the HolbertonBnB console in interactive mode, run the file `console.py` by itself:
-
  ```
 $ ./console.py
 ```
