@@ -1,5 +1,5 @@
 # AirBnB clone - The console
-![enter image description here](https://holbertonintranet.s3.amazonaws.com/uploads/medias/2018/6/65f4a1dd9c51265f49d0.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOUWMNL5ANN/20210630/us-east-1/s3/aws4_request&X-Amz-Date=20210630T132523Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=15ad39778901c5f0e8d8472b717fd43c648963afb69b91ebb375d4f7a1341bb4)
+(https://holbertonintranet.s3.amazonaws.com/uploads/medias/2018/6/65f4a1dd9c51265f49d0.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOUWMNL5ANN/20210630/us-east-1/s3/aws4_request&X-Amz-Date=20210630T132523Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=15ad39778901c5f0e8d8472b717fd43c648963afb69b91ebb375d4f7a1341bb4)
 ## Description :
 HolbertonBnB is a complete web application, integrating database storage, a back-end API, and front-end interfacing in a clone of AirBnB.
 
