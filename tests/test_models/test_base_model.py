@@ -53,3 +53,4 @@ class BaseModelTest(unittest.TestCase):
         """Update updated_at with the current datetime."""
         self.updated_at = datetime.today()
         models.storage.save()
+        
