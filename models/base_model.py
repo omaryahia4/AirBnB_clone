@@ -22,23 +22,21 @@ class BaseModel:
             for key, value in kwargs.items():
                 if key is not "__class__":
                     setattr(self, key, value)
-        else:
-            models.storage.new(self)
 
     def __str__(self):
-        return "[{}] ({}) {}".format
-        (self.__class__.__name__, self.id, self.__dict__)
+        """print: [<class name>] (<self.id>) <self.__dict__>"""
+        return str("[{}] ({}) {}".format(
+            self.__class__.__name__, self.id, self.__dict__))
 
     def save(self):
         """updates the public instance attribute
          updated_at with the current datetime"""
 
         self.updated_at = datetime.now()
-        models.storage.save()
 
     def to_dict(self):
         """returns a dictionary containing all
-         keys/values of __dict__ of the instance"""
+         keys/values of __dict__ of tcdhe instance"""
 
         Dict = self.__dict__
         Dict["__class__"] = self.__class__.__name__
