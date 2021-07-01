@@ -26,3 +26,4 @@ class FileStorage:
             JS[i] = self.__objects[i].to_dict()
         with open(self.__file_path, "w", encoding="utf-8") as f:
             json.dump(JS, f)
+            
