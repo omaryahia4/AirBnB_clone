@@ -26,4 +26,16 @@ class FileStorage:
             JS[i] = self.__objects[i].to_dict()
         with open(self.__file_path, "w", encoding="utf-8") as f:
             json.dump(JS, f)
-            
+    
+    def reload(self):
+        """ deserializes the JSON file to __objects """
+        try:
+            with open(FileStorage.__file_path, "r") as f:
+                data = json.load(f)
+                for value in data.values():
+                    my_cl = value["__class__"]
+                    my_cl = eval(my_cl)
+                    obj = my_cl(**value)
+                    self.new(obj)
+        except:
+            pass
