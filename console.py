@@ -40,30 +40,27 @@ class HBNBCommand(cmd.Cmd):
         if arg == '':
             print("** class name missing **")
             return
-        elif arg not in HBNBCommand.Classes:
+        elif arg[0] not in HBNBCommand.Classes:
             print("** class doesn't exist **")
             return
         else:
-            obj = eval(arg)()
+            obj = eval("{}()".format(arg[0]))
             obj.save()
             print(obj.id)
 
     def do_show(self, args):
         """String representation of an instance
          based on the class name and id"""
-        arg = args.split(" ")
-        if arg == "":
+        args = args.split()
+        if args == "":
             print("** class name missing **")
-            return
-        elif arg not in HBNBCommand.Classes:
+        if args[0] not in self.Classes:
             print("** class doesn't exist **")
-            return
-        elif len(arg) == 1:
+        if len(args) < 2:
             print("** instance id missing **")
-            return
         else:
             objects = models.storage.all()
-            key = "{}.{}".format(arg[0], arg[1])
+            key = "{}.{}".format(args[0], args[1])
             try:
                 obj = objects[key]
                 print(obj)
@@ -77,7 +74,7 @@ class HBNBCommand(cmd.Cmd):
         if not arg:
             print("** class name missing **")
             return
-        if arg[0] not in HBNBCommand.classes:
+        if arg[0] not in HBNBCommand.Classes:
             print("** class doesn't exist **")
             return
         if len(arg) == 1:
@@ -90,24 +87,29 @@ class HBNBCommand(cmd.Cmd):
             storage.save()
             print(storage.all())
 
-    def do_all(self, arg):
-        """Prints all string representation of all
-        instances based or not on the class name"""
-        arg = arg.split()
-        objects_dict = storage.all()
-        List = []
-        if len(arg):
-            class_name = arg[0]
-            if class_name not in HBNBCommand.Classes:
-                print("** class doesn't exist **")
-                return
-            for key, value in objects_dict.items():
-                if class_name in key:
-                    List.append((objects_dict[key].__str__()))
+    def do_all(self, args):
+        """
+        Prints all string representation of all instances
+        based or not on the class name.
+        """
+        objects = models.storage.all()
+        list = []
+        if not args:
+            for name in objects.keys():
+                obj = objects[name]
+                list.append(str(obj))
+            print(list)
+            return
+        args = args.split(" ")
+        if args[0] in self.Classes:
+            for name in objects:
+                if name[0:len(args[0])] == args[0]:
+                    obj = objects[name]
+                list.append(str(obj))
+            print(list)
         else:
-            for key, value in objects_dict.items():
-                List.append((objects_dict[key].__str__()))
-        print(List)
+            print("** class doesn't exist **")
+            return
 
     def do_update(self, arg):
         """

@@ -34,14 +34,16 @@ class FileStorage:
             json.dump(JS, f)
 
     def reload(self):
-        """ deserializes the JSON file to __objects """
+        """
+        deserializes the JSON file to __objects
+        (only if the JSON file (__file_path) exists
+        """
+
         try:
-            with open(FileStorage.__file_path, "r") as f:
-                data = json.load(f)
-                for value in data.values():
-                    my_cl = value["__class__"]
-                    my_cl = eval(my_cl)
-                    obj = my_cl(**value)
-                    self.new(obj)
+            with open(self.__file_path, "r", encoding="UTF-8") as f:
+                obj = json.load(f)
+            for k, v in obj.items():
+                class_name = k.split('.')[0]
+                self.__objects[k] = eval(class_name)(**v)
         except:
             pass
